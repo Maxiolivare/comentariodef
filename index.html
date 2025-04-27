@@ -30,13 +30,13 @@
                     </div>
                     <p><strong>1.000.000 Me gusta</strong></p>
                     <div id="seccionComentarios" class="mt-3 comentarioss">
-                        <div id="comentariosLista">
+                        <div id="comentariosLista" class="margen">
                             <p><strong>Mishell Obama </strong>Borra la cuenta</p>
                             <p><strong>Mishael Jackson </strong>Que gracioso, me suscribo</p>
                         </div>
                         <form id="comentarioForm" class="mt-2 d-flex">
                             <input type="text" id="comentarioInput" class="form-control me-2" placeholder="Escribe un comentario...">
-                            <button type="submit"  class="btn btn-primary">Publicar</button>
+                            <button type="button" onclick="publicar()"  class="btn btn-primary">Publicar</button>
                         </form>
                     </div>
                 </div>
@@ -46,29 +46,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js">
     </script>
     <script>
-
-        let form = document.getElementById('comentarioForm');
-        let input = document.getElementById('comentarioInput');
-        let lista = document.getElementById('comentariosLista');
-        let seccionComentarios = document.getElementById('seccionComentarios');
-
+        
         function mostrarComentarios() {
+            let seccionComentarios = document.getElementById('seccionComentarios');
+
             if (seccionComentarios.style.display === 'none') {
                 seccionComentarios.style.display = 'block';
             } else {
                 seccionComentarios.style.display = 'none';
             }
         }
+        function publicar(){
+            let form = document.getElementById('comentarioForm');
+            let lista = document.getElementById('comentariosLista');
+            let input = document.getElementById('comentarioInput').value;
 
-        form.addEventListener('submit', function() {
-            let texto= input.value;
-            if (texto !== '') {
-            let nuevoComentario = document.createElement('p');
-            nuevoComentario.innerHTML = '<strong>Mishelin </strong>'+ texto;
-            lista.appendChild(nuevoComentario);
-            
-            }
-        });
+            lista.innerHTML += '<strong>Mishael Jordan </strong>'  + input + '<br>';
+        }
     </script>
 </body>
 </html>

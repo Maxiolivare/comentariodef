@@ -5,6 +5,8 @@
 header{
     padding: 10px;
     background-color: #F5F5F5;
+    
+    
 }
 .alen{
     align-items: center;
@@ -32,10 +34,12 @@ header{
     margin: 0 auto;
 }
 .contenedor-publicacion{
-    width: 60%;
+    width: 80%;
+    background-color: #F5F5F5;
+    padding: 10px;
 }
 .publicacion{
-    width: 100%;
+    width: 90%;
     height: 520px;
     margin-top: 5px;
     display: block;
@@ -47,4 +51,7 @@ header{
     border: 1px solid black;
     padding: 10px;
     border-radius: 10px;
+}
+.margen{
+    margin-top: 5px;
 }

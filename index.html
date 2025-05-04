@@ -9,9 +9,40 @@
 </head>
 <body>
     <header class="linea">
-        <div class="container d-flex alen">
-            <img src="assets/img/instagram.png" class="logo" alt="">
-            <h4 class="mish">Mishtagram</h4>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 d-flex alen">
+                    <img src="assets/img/instagram.png" class="logo" alt="">
+                    <h4 class="mish">Mishtagram</h4>
+                </div>
+                <div class="col-6 d-flex alen ">
+                    <!-- Button trigger modal -->
+                    <a class="boton ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Iniciar Sesion
+                    </a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h2 class="modal-title fs-5" id="exampleModalLabel">Iniciar Sesión</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form >
+                                        <div class="form-group">
+                                        <label>Nombre de Usuario</label>
+                                        <input type="text" class="form-control" id="nombre-usuario">
+                                        </div>
+                                        <br>
+                                        <button type="button" onclick="nombre()" class="boton">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
     <br>
@@ -32,11 +63,11 @@
                     <div id="seccionComentarios" class="mt-3 comentarioss">
                         <div id="comentariosLista" class="margen">
                             <p><strong>Mishell Obama </strong>Borra la cuenta</p>
-                            <p><strong>Mishael Jackson </strong>Que gracioso, me suscribo</p>
+                            <p><strong>Mishael Jackson </strong>Que gracioso, me suscribo</p>  
                         </div>
                         <form id="comentarioForm" class="mt-2 d-flex">
                             <input type="text" id="comentarioInput" class="form-control me-2" placeholder="Escribe un comentario...">
-                            <button type="button" onclick="publicar()"  class="btn btn-primary">Publicar</button>
+                            <button type="button" onclick="publicar()"  class="boton">Publicar</button>
                         </form>
                     </div>
                 </div>
@@ -49,19 +80,44 @@
         
         function mostrarComentarios() {
             let seccionComentarios = document.getElementById('seccionComentarios');
-
-            if (seccionComentarios.style.display === 'none') {
+            if (seccionComentarios.style.display === 'none') {  
                 seccionComentarios.style.display = 'block';
             } else {
                 seccionComentarios.style.display = 'none';
             }
         }
+        function nombre(){
+            let nombresUsados = ["Mishael Jackson", "Mishael Jordan", "memes_mish", "Mishell Obama"];
+            let usuario = document.getElementById('nombre-usuario').value;
+            let modal = document.getElementById('examplemodal')
+            if(usuario == ""){
+                alert("Ponte algo por favor");
+                return;
+            }else if(usuario === 'Mishael Jordan'){
+                alert("Ese es mi nombre, ocupa otro");
+                return;
+            }else if(nombresUsados.includes(usuario)){
+                alert('Ese usuario ya existe, usa otro');
+                return;
+            }else{
+                alert('Usuario ingresado, ya puedes cerrar el modal')
+            }
+        }
+
         function publicar(){
+            let usuario = document.getElementById('nombre-usuario').value;
             let form = document.getElementById('comentarioForm');
             let lista = document.getElementById('comentariosLista');
             let input = document.getElementById('comentarioInput').value;
 
-            lista.innerHTML += '<strong>Mishael Jordan </strong>'  + input + '<br>';
+            if(usuario == ""){
+                alert("Debes iniciar sesion antes de comentar");
+                return;
+            }
+
+            lista.innerHTML += '<p>' +'<strong>'+ usuario + ' ' +'</strong>'  + input + '</p>';
+            document.getElementById('comentarioInput').value = '' 
+            
         }
     </script>
 </body>

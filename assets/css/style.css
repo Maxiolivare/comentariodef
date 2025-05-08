@@ -47,10 +47,13 @@ header{
     margin-right: auto;
 }
 .comentarioss{
-    display: none;
     border: 1px solid black;
     padding: 10px;
     border-radius: 10px;
+    display: none;
+}
+.yelnone{
+    display: block;
 }
 .margen{
     margin-top: 5px;

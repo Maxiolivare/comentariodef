@@ -78,47 +78,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js">
     </script>
     <script>
-        //jquery
-        $(document).ready(function() {
-    $('#globos').click(function() {
-        $('#seccionComentarios').toggleClass('yelnone');
-    });
-
-    $('#nombre-de-usuario').click(function() {
-        let usuario = $('#nombre-usuario').val();
-        let nombresUsados = ["Mishael Jackson", "Mishael Jordan", "memes_mish", "Mishell Obama"];
-
-        if(usuario == "") {
-            alert("Ponte algo por favor");
-        } else if(nombresUsados.includes(usuario)) {
-            alert('Ese usuario ya existe, usa otro');
-        } else {
-            alert('Usuario ingresado, ya puedes cerrar el modal');
-        }
-    });
-
-    $('#boton-publi').click(function() {
-        let usuario = $('#nombre-usuario').val();
-        let comentario = $('#comentarioInput').val();
-
-        if(usuario == "") {
-            alert('Debes iniciar sesión antes de comentar');
-        } else {
-            $('#comentariosLista').append('<p><strong>' + usuario + '</strong> ' + comentario + '</p>');
-            $('#comentarioInput').val('');
-        }
-    });
-});
-
-        /* function mostrarComentarios() {
+         function mostrarComentarios() {
             let seccionComentarios = document.getElementById('seccionComentarios');
             if (seccionComentarios === 'none') {  
                 seccionComentarios.style.display = 'block';
             } else {
                 seccionComentarios.style.display = 'none';
             }
-        } */
-        /* function nombre(){
+        } 
+         function nombre(){
             let nombresUsados = ["Mishael Jackson", "Mishael Jordan", "memes_mish", "Mishell Obama"];
             let usuario = document.getElementById('nombre-usuario').value;
             
@@ -134,9 +102,9 @@
             }else{
                 alert('Usuario ingresado, ya puedes cerrar el modal')
             }
-        } */
+        } 
 
-        /* function publicar(){
+         function publicar(){
             let usuario = document.getElementById('nombre-usuario').value;
             let form = document.getElementById('comentarioForm');
             let lista = document.getElementById('comentariosLista');
@@ -150,7 +118,7 @@
             lista.innerHTML += '<p>' +'<strong>'+ usuario + ' ' +'</strong>'  + input + '</p>';
             document.getElementById('comentarioInput').value = '' 
             
-        } */
+        } 
     </script>
 </body>
 </html>

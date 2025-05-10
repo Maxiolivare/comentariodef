@@ -79,38 +79,37 @@
     </script>
     <script>
         //jquery
-            $(document).ready(function(){
-                $('#globos').click(function(){
-                    $('#seccionComentarios').toggleClass('yelnone')
-                })
-                $('#nombre-de-usuario').click(function(){
-                    if($('#nombre-usuario').val()== ""){
-                        alert('Ponte un nombre por favor')
-                        return;
-                    }else{
-                        alert('Usuario ingresado, ya puedes cerrar el modal')
-                    }
-                })
-                let nombresUsados = ["Mishael Jackson", "Mishael Jordan", "memes_mish", "Mishell Obama"];
-                    if(nombresUsados.includes($('#nombre-usuario').val())){
-                        alert('Ese usuario ya existe, usa otro');
-                        return;
-                    }else if(usuario == ""){
-                        alert("Ponte algo por favor");
-                        return;
-                    }else{
-                        alert('Usuario ingresado, ya puedes cerrar el modal')   
-                    }
-                    $('#boton-publi').click(function(){
-                        if($('nombre-usuario').val == ""){
-                            alert('Debes iniciar sesion antes de comentar')
-                        }else{
-                            $('#comentariosLista') += '<p>' + '<strong>' + $('#nombre-usuario').val() +  '</strong>' + $('#comentarioInput').val() + '</p>'
-                        }
-                    })
-                    
-                
-            })
+        $(document).ready(function() {
+    $('#globos').click(function() {
+        $('#seccionComentarios').toggleClass('yelnone');
+    });
+
+    $('#nombre-de-usuario').click(function() {
+        let usuario = $('#nombre-usuario').val();
+        let nombresUsados = ["Mishael Jackson", "Mishael Jordan", "memes_mish", "Mishell Obama"];
+
+        if(usuario == "") {
+            alert("Ponte algo por favor");
+        } else if(nombresUsados.includes(usuario)) {
+            alert('Ese usuario ya existe, usa otro');
+        } else {
+            alert('Usuario ingresado, ya puedes cerrar el modal');
+        }
+    });
+
+    $('#boton-publi').click(function() {
+        let usuario = $('#nombre-usuario').val();
+        let comentario = $('#comentarioInput').val();
+
+        if(usuario == "") {
+            alert('Debes iniciar sesión antes de comentar');
+        } else {
+            $('#comentariosLista').append('<p><strong>' + usuario + '</strong> ' + comentario + '</p>');
+            $('#comentarioInput').val('');
+        }
+    });
+});
+
         /* function mostrarComentarios() {
             let seccionComentarios = document.getElementById('seccionComentarios');
             if (seccionComentarios === 'none') {  
